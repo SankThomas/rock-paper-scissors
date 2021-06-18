@@ -11,6 +11,9 @@
 */
 
 import { useState, useEffect } from "react"
+import rock from "./images/icon-rock.svg"
+import paper from "./images/icon-paper.svg"
+import scissors from "./images/icon-scissors.svg"
 
 const getLocalStorage = () => {
   let score = localStorage.getItem("score")
@@ -70,16 +73,56 @@ const App = () => {
 
   return (
     <>
-      <h1>Rock, Paper, Scissors</h1>
-      <h3>You have chosen: {userChoice}</h3>
-      <h3>The computer chose: {computerChoice}</h3>
-      {choices.map((choice, index) => (
-        <button key={index} onClick={() => handleClick(choice)}>
-          {choice}
-        </button>
-      ))}
-      <h2>{result}</h2>
-      <h4>{score}</h4>
+      <section className="main mt-5 sm:mt-10 lg:mt-20">
+        <div className="flex items-center justify-between border-2 border-gray-20 p-5 rounded-md sm:w-96 sm:mx-auto">
+          <article>
+            <h4 className="text-xl text-white uppercase sm:text-3xl">Rock</h4>
+            <h4 className="text-xl text-white uppercase sm:text-3xl">Paper</h4>
+            <h4 className="text-xl text-white uppercase sm:text-3xl">
+              Scissors
+            </h4>
+          </article>
+
+          <article className="bg-white p-5 rounded-md text-center">
+            <p className="score-text uppercase">Score</p>
+            <h2 className="score text-4xl">{score}</h2>
+          </article>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <h2 className="text-center text-white mt-10 text-2xl uppercase sm:text-3xl md:text-4xl lg:text-5xl">
+            {result}
+          </h2>
+          <button
+            onClick={() => setScore(0)}
+            className="bg-white uppercase text-blue-500 py-2 px-8 rounded mt-5"
+          >
+            Play Again
+          </button>
+        </div>
+        <div className="buttons flex items-center justify-center mt-10">
+          <button onClick={() => handleClick("rock")}>
+            <img
+              src={rock}
+              alt="rock"
+              className="rock w-32 h-32 rounded-full p-2"
+            />
+          </button>
+          <button onClick={() => handleClick("paper")}>
+            <img
+              src={paper}
+              alt="paper"
+              className="paper w-32 h-32 rounded-full p-2"
+            />
+          </button>
+          <button onClick={() => handleClick("scissors")}>
+            <img
+              src={scissors}
+              alt="scissors"
+              className="scissors w-32 h-32 rounded-full p-2"
+            />
+          </button>
+        </div>
+      </section>
     </>
   )
 }
