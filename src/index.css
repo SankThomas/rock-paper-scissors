@@ -22,4 +22,39 @@
 
 body {
   font-family: "Barlow Semi Condensed", sans-serif;
+  background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%)) no-repeat
+    center/cover;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main {
+}
+
+.score-text {
+  color: var(--score-text);
+}
+
+.buttons .rock {
+  background-image: linear-gradient(
+    120deg,
+    hsl(39, 89%, 49%),
+    hsl(40, 84%, 53%)
+  );
+}
+
+.buttons .paper {
+  background-image: linear-gradient(
+    120deg,
+    hsl(230, 89%, 62%),
+    hsl(230, 89%, 65%)
+  );
+}
+
+.buttons .scissors {
+  background-image: linear-gradient(
+    120deg,
+    hsl(349, 71%, 52%),
+    hsl(349, 70%, 56%)
+  );
 }
